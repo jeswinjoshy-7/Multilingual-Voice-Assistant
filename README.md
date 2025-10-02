@@ -1,5 +1,5 @@
 Multilingual Voice Assistant: Low-Latency Conversational AI
-s<img width="594" height="480" alt="Screenshot from 2025-10-02 21-19-57" src="https://github.com/user-attachments/assets/1fa8377d-a598-49ed-8e80-eaf912cdee99" />
+<img width="594" height="480" alt="Screenshot from 2025-10-02 21-19-57" src="https://github.com/user-attachments/assets/1fa8377d-a598-49ed-8e80-eaf912cdee99" />
 
 A full-stack conversational AI agent engineered for stable, low-latency interactions in English and Hindi. The system uses an asynchronous REST architecture with high-performance inference services to deliver consistent performance under concurrent load.
 
@@ -198,8 +198,7 @@ Multilingual_Voice_Assistant/
 ```
 
 Production notes
-- Serve the backend with a production server s<img width="594" height="480" alt="Screenshot from 2025-10-02 21-19-57" src="https://github.com/user-attachments/assets/1fa8377d-a598-49ed-8e80-eaf912cdee99" />
-uch as Gunicorn with Uvicorn workers and tune worker count to CPU cores.
+- Serve the backend with a production server such as Gunicorn with Uvicorn workers and tune worker count to CPU cores.
 - Enforce request size limits, connection timeouts, and per IP rate limits at the ASGI or proxy layer.
 - Emit structured logs with a correlation id across STT, LLM, and TTS calls to simplify debugging and latency analysis.
 - Keep secrets out of the frontend and use a secrets manager for deployment environments.
