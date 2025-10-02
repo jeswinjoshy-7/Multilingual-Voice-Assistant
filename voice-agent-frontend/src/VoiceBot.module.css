@@ -1,0 +1,118 @@
+/* VoiceBot.module.css (Updated for Visual Feedback) */
+
+.voiceContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* Deep Blue Aesthetic */
+    color: white;
+}
+
+.statusText {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #9cdbff;
+}
+
+.visualizerWrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 40px 0;
+}
+
+.canvasVisualizer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.1s ease-out; /* Smooth transition for local volume scale */
+}
+
+.circleButton {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: 5px solid rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.circleButton:hover:not(:disabled) {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+.circleButton:disabled {
+    background: #5a5a5a;
+    cursor: not-allowed;
+    opacity: 0.8;
+    box-shadow: none;
+}
+
+/* Pulsate animation when actively recording (voice input) */
+.pulse {
+    animation: pulsate-mic 1s infinite;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.8), 0 0 60px rgba(255, 0, 0, 0.5); /* Red pulse effect */
+}
+
+@keyframes pulsate-mic {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+/* Spinner/Motion for the Processing State */
+.spinner {
+    /* Apply spin animation and cyan glow to the canvas/visualizer */
+    animation: spin 2s linear infinite;
+    box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc; 
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.transcriptLog {
+    width: 80%;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.transcriptLog p {
+    margin: 5px 0;
+    padding-bottom: 2px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+.userMessage {
+    color: #ffcc00; /* Yellow for user */
+}
+.agentMessage {
+    color: #00ffcc; /* Cyan for agent */
+}
+.systemMessage {
+    color: #f0f0f0;
+    font-style: italic;
+}
